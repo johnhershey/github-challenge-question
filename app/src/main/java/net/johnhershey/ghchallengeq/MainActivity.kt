@@ -19,7 +19,7 @@ const val BASE_URL = "https://api.github.com/repos/"
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var linearLayoutManager: LinearLayoutManager
     lateinit var theAdapter: CommitsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,12 +53,12 @@ class MainActivity : AppCompatActivity() {
                 theAdapter.notifyDataSetChanged()
                 recyclerview_commits.adapter = theAdapter
 
-                Log.d("MainActivity", "API Call Successful!")
+                //Log.d("MainActivity", "API Call Successful!")
             }
 
             override fun onFailure(call: Call<List<ResponseItem>?>, t: Throwable) {
                 //Log and display error message
-                Log.d("MainActivity", "getCommitList: onFailure: " + t.message)
+                //Log.d("MainActivity", "getCommitList: onFailure: " + t.message)
 
                 Toast.makeText(this@MainActivity, "Data Error:\n" + t.message, Toast.LENGTH_LONG).show()
             }
