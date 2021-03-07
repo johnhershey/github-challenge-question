@@ -38,7 +38,7 @@ class CommitsAdapter(val context: Context, val commitList: List<ResponseItem>): 
     override fun onBindViewHolder(holder: CommitsAdapter.ViewHolder, position: Int) {
         //Remove extra characters from author's name
         val originalAuthorString = commitList[position].commit.author.toString()
-        val cleanAuthorString = originalAuthorString.substring(12..originalAuthorString.length - 1)
+        val cleanAuthorString = originalAuthorString.substring(12 until originalAuthorString.length - 1)
 
         //Set text to new values
         holder.author.text = cleanAuthorString
