@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import net.johnhershey.ghchallengeq.adapters.CommitsAdapter
 
 const val BASE_URL = "https://api.github.com/repos/"
 
 class MainActivity : AppCompatActivity() {
 
     var linearLayoutManager: LinearLayoutManager
-    var the Adapter: CommitsAdapter
+    var theAdapter: CommitsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
