@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface GitHubAPI {
-    @GET("brianchandotcom/liferay-portal/commits?per_page=3")
+    @GET("brianchandotcom/liferay-portal/commits?per_page=30")
 
     fun getCommitList(): Call<List<ResponseItem>>
 }

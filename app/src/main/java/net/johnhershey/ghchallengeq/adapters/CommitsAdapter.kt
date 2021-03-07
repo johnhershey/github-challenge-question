@@ -1,6 +1,7 @@
 package net.johnhershey.ghchallengeq.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +26,7 @@ class CommitsAdapter(val context: Context, val commitList: List<ResponseItem>): 
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommitsAdapter.ViewHolder {
         var itemView = LayoutInflater.from(context).inflate(R.layout.row_commit, parent, false)
         return ViewHolder(itemView)
     }
@@ -34,7 +35,7 @@ class CommitsAdapter(val context: Context, val commitList: List<ResponseItem>): 
         return commitList.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CommitsAdapter.ViewHolder, position: Int) {
         //Remove extra characters from author's name
         val originalAuthorString = commitList[position].commit.author.toString()
         val cleanAuthorString = originalAuthorString.substring(12..originalAuthorString.length - 1)
@@ -43,5 +44,7 @@ class CommitsAdapter(val context: Context, val commitList: List<ResponseItem>): 
         holder.author.text = cleanAuthorString
         holder.hash.text = commitList[position].sha
         holder.message.text = commitList[position].commit.message
+
+        Log.d("COMMIT: $position", cleanAuthorString + " " + commitList[position].sha + " " + commitList[position].commit.message)
     }
 }
